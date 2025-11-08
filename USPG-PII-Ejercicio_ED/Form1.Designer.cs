@@ -50,6 +50,7 @@
             btnUndo.TabIndex = 1;
             btnUndo.Text = "Undo";
             btnUndo.UseVisualStyleBackColor = true;
+            btnUndo.Click += BtnUndo_Click;
             // 
             // btnSave
             // 
@@ -59,6 +60,7 @@
             btnSave.TabIndex = 2;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += BtnSave_Click;
             // 
             // btnRedo
             // 
@@ -68,6 +70,7 @@
             btnRedo.TabIndex = 3;
             btnRedo.Text = "Redo";
             btnRedo.UseVisualStyleBackColor = true;
+            btnRedo.Click += BtnRedo_Click;
             // 
             // frmEditorTxt
             // 
@@ -80,6 +83,7 @@
             Controls.Add(textBox1);
             Name = "frmEditorTxt";
             Text = "Editor de Texto";
+            UpdateButtons();
             ResumeLayout(false);
             PerformLayout();
         }
