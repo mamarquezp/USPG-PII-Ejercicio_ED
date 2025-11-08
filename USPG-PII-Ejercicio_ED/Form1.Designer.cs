@@ -47,7 +47,7 @@
             btnUndo.Location = new Point(12, 360);
             btnUndo.Name = "btnUndo";
             btnUndo.Size = new Size(112, 34);
-            btnUndo.TabIndex = 1;
+            btnUndo.TabIndex = 2;
             btnUndo.Text = "Undo";
             btnUndo.UseVisualStyleBackColor = true;
             btnUndo.Click += BtnUndo_Click;
@@ -57,7 +57,7 @@
             btnSave.Location = new Point(248, 360);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(112, 34);
-            btnSave.TabIndex = 2;
+            btnSave.TabIndex = 1;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += BtnSave_Click;

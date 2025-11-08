@@ -18,6 +18,10 @@ namespace USPG_PII_Ejercicio_ED.DobleLinkList
         public bool CanUndo => _current?.Prev != null;
 
         public bool CanRedo => _current?.Next != null;
+        public T? CurrentState
+        {
+            get { return _current?.Data; }
+        }
 
         public HistoryList(T initialState)
         {
@@ -41,17 +45,13 @@ namespace USPG_PII_Ejercicio_ED.DobleLinkList
             _current.Next = newNode;
             _current = newNode;
             Count++;
-            while (Count > Capacity && head != null) //limita cantidad de Undo
+            while (Count > (Capacity + 1) && head != null) //limita cantidad de Undo
             {
                 head = head.Next;
 
                 if (head != null)
                 {
                     head.Prev = null;
-                }
-                else
-                {
-                    _current = null;
                 }
                 Count--;
             }
