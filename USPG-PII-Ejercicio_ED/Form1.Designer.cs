@@ -83,7 +83,6 @@
             Controls.Add(textBox1);
             Name = "frmEditorTxt";
             Text = "Editor de Texto";
-            UpdateButtons();
             ResumeLayout(false);
             PerformLayout();
         }

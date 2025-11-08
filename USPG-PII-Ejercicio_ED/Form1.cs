@@ -18,7 +18,9 @@ namespace USPG_PII_Ejercicio_ED
                 _history = new HistoryList<DocState>(initialState);
 
                 textBox1.Text = initialState.Text;
-            }
+
+                UpdateButtons();
+        }
             private void BtnSave_Click(object? sender, EventArgs e)
             {
                 var currentState = new DocState { Text = textBox1.Text };

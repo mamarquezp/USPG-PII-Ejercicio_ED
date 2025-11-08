@@ -9,10 +9,11 @@ namespace USPG_PII_Ejercicio_ED.DobleLinkList
 {
     internal class HistoryList<T> where T : class 
     {
+        private DoublyLinkedNode<T>? head;
         private DoublyLinkedNode<T>? _current;
         public int Count { get; private set; }
 
-        //public int Capacity { get; set; } = 10; 
+        public int Capacity { get; set; } = 5; 
 
         public bool CanUndo => _current?.Prev != null;
 
@@ -26,7 +27,7 @@ namespace USPG_PII_Ejercicio_ED.DobleLinkList
         public void Push(T value)
         {
             var newNode = new DoublyLinkedNode<T>(value);
-        if (_current.Next != null)
+            if (_current.Next != null)
             {
                 var temp = _current.Next;
                 while (temp != null)
@@ -40,9 +41,24 @@ namespace USPG_PII_Ejercicio_ED.DobleLinkList
             _current.Next = newNode;
             _current = newNode;
             Count++;
+            while (Count > Capacity && head != null) //limita cantidad de Undo
+            {
+                head = head.Next;
+
+                if (head != null)
+                {
+                    head.Prev = null;
+                }
+                else
+                {
+                    _current = null;
+                }
+                Count--;
+            }
         }
 
-        public T UndoOrDefault(T defaultValue)
+
+public T UndoOrDefault(T defaultValue)
         {
             if (!CanUndo)
             {
