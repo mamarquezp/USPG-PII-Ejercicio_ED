@@ -13,7 +13,7 @@ namespace USPG_PII_Ejercicio_ED.DobleLinkList
         private DoublyLinkedNode<T>? _current;
         public int Count { get; private set; }
 
-        public int Capacity { get; set; } = 5; 
+        public int Capacity { get; set; } = 100; 
 
         public bool CanUndo => _current?.Prev != null;
 

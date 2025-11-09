@@ -20,7 +20,7 @@ namespace USPG_PII_Ejercicio_ED
 
             _history = new HistoryList<DocState>(initialState);
 
-            _history.Capacity = 5;
+            _history.Capacity = 100;//límite de estados guardados
 
             textBox1.Text = initialState.Text;
 
@@ -95,7 +95,6 @@ namespace USPG_PII_Ejercicio_ED
 
         private async void textBox1_TextChanged(object? sender, EventArgs e)
         {
-            // 1. Si el cambio vino de Undo/Redo, no hagas nada.
             if (_isRestoringState) return;
 
             try
