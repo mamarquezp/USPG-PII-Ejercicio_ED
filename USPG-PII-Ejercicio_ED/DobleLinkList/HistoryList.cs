@@ -25,7 +25,7 @@ namespace USPG_PII_Ejercicio_ED.DobleLinkList
 
         public HistoryList(T initialState)
         {
-            _current = new DoublyLinkedNode<T>(initialState);
+            head = _current = new DoublyLinkedNode<T>(initialState);
             Count = 1;
         }
         public void Push(T value)

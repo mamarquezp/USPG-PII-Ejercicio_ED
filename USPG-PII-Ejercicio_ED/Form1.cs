@@ -27,7 +27,7 @@ namespace USPG_PII_Ejercicio_ED
             btnUndo.Click += BtnUndo_Click;
             btnRedo.Click += BtnRedo_Click;
             textBox1.TextChanged += textBox1_TextChanged;
-
+            textBox1.KeyDown += textBox1_KeyDown;
             UpdateButtons();
         }
 
@@ -112,13 +112,40 @@ namespace USPG_PII_Ejercicio_ED
             {}
         }
 
-        /*
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_KeyDown(object? sender, KeyEventArgs e)
         {
-            if (!_isRestoringState)
+            if (e.Control)
             {
+                switch (e.KeyCode)
+                {
+                    case Keys.Z:
+                        e.SuppressKeyPress = true; 
+                        e.Handled = true;          
+                        BtnUndo_Click(null, EventArgs.Empty); 
+                        break;
+
+                    case Keys.Y:
+                        e.SuppressKeyPress = true;
+                        e.Handled = true;
+                        BtnRedo_Click(null, EventArgs.Empty); 
+                        break;
+
+                    case Keys.S:
+                        e.SuppressKeyPress = true;
+                        e.Handled = true;
+                        SaveCurrentState();
+                        break;
+                }
             }
         }
-        */
-    }
+
+            /*
+            private void textBox1_TextChanged(object sender, EventArgs e)
+            {
+                if (!_isRestoringState)
+                {
+                }
+            }
+            */
+        }
 }
